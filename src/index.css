@@ -1,0 +1,21 @@
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.leaflet-container {
+    height: 50vh;
+}
+
+.photo {
+    height: 35vh;
+    width: 50vh; 
+}
+
+.img {
+    height: 35vh;
+    width: 40vh; 
+    margin: auto;
+}
