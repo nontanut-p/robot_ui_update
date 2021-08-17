@@ -1307,8 +1307,9 @@ function Maps(map) {
 
 
 	]
-
-	let robotPOS = [Peer[3][1], Peer[3][1]]
+	const dummyLL = [[10.07943709,100.6013824],[10.07945929,100.6009675]]
+	var robotPOS = (Peer[3].length > 2) ?    [Peer[3][Peer[3].length - 2], Peer[3][Peer[3].length -1]] : dummyLL
+	let robotMap = (Peer[3].length < 1)?  dummyLL :  Peer[3]
 	console.log(robotPOS,'robotPOS')
 	return (
 
@@ -1331,8 +1332,11 @@ function Maps(map) {
 					I'M A R O B O T
 				</Popup>
 			</Marker>
-			<Polyline pathOptions={limeOptions} positions={Peer[3]} weight={5} />
-			<Polyline pathOptions={redOptions} positions={robotPOS} weight={5} />
+			{
+				
+			}
+			<Polyline pathOptions={limeOptions} positions={robotMap} weight={5} />
+			<Polyline pathOptions={redOptions} positions={robotPOS} weight={7} />
 			<Polyline pathOptions={limeOptions} positions={polyline} weight={10} />
 			<Polyline pathOptions={redOptions} positions={polyline} weight={1} />
 			<Polyline pathOptions={blueOptions} positions={mtecLineDay1} weight={3} />
