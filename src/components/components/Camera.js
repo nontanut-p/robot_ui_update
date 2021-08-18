@@ -1,7 +1,7 @@
 import React from 'react';
-
-function Camera({ video }) {
-	//console.log(video.video, 'from camera')
+import Peer from '../../Peer.js';
+function Camera() {
+	console.log(Peer[2], 'from camera')
 	return (
 		<div className=' border-2 max-w-xl mx-auto bg-white rounded-xl shadow-md overflow-hidden xl:max-w-2xl bg-gray-100'>
 			<div className='text-center pl-2 pt-2 uppercase tracking-tight text-lg text-blue-700 font-semibold '>
@@ -10,7 +10,7 @@ function Camera({ video }) {
 			<div>
 				<div className='px-3 py-3 '>
 					<div className="photo">
-						<img className='img' src={`data:image/jpeg;base64,${video.video}`} />
+						<img className='img' src={`data:image/jpeg;base64,${Peer[2]}`} />
 
 					</div>
 				</div>
