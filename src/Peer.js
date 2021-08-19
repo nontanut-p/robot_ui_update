@@ -230,7 +230,7 @@ var robot = {
 					th.timer_check_ready = null;
 				}
 				// th.send_peer({event:'get_path_list'});
-				//setInterval(() => th.send_peer({ event: 'get_pc_status' }), 5000);
+				setInterval(() => th.send_peer({ event: 'get_pc_status' }), 5000);
 				setInterval(() => th.send_peer({ event: 'stream' }), 150);
 				//setInterval(() => th.send_peer({ event: 'gnssMessage' }), 5000);
 				setInterval(() => th.send_peer({ event: 'gazebo_sim' }), 500);
@@ -247,7 +247,7 @@ var robot = {
 				//base64Img = data.base64Img
 
 				exportData[2] = data.base64;
-				console.log('stream got data ')
+				//console.log('stream got data ')
 				//console.log('base64Img ', exportData[2])
 			} else if (data.event == 'get_path_list') {
 				//console.log('got path list');

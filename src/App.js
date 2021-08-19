@@ -31,7 +31,7 @@ function App() {
 				},
 			]);
 			setConnectStatus(Peer[1]);
-		}, 1000);
+		}, 100);
 	}, 0);
 
 	return (
