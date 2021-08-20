@@ -231,7 +231,7 @@ var robot = {
 				}
 				// th.send_peer({event:'get_path_list'});
 				setInterval(() => th.send_peer({ event: 'get_pc_status' }), 5000);
-				setInterval(() => th.send_peer({ event: 'stream' }), 150);
+				setInterval(() => th.send_peer({ event: 'stream' }), 50);
 				//setInterval(() => th.send_peer({ event: 'gnssMessage' }), 5000);
 				setInterval(() => th.send_peer({ event: 'gazebo_sim' }), 500);
 			} else if (data.event == 'get_pc_status') {
