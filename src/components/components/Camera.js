@@ -1,8 +1,14 @@
 import React from 'react';
 import Peer from '../../Peer.js';
-
+import { useState, useEffect } from 'react';
+let img_stream
 function Camera() {
-
+	useEffect(() => {
+		setInterval(() => {
+			img_stream = Peer[2]
+			console.log('imgae')
+		}, 50);
+	});
 	return (
 		<div className=' border-2 max-w-xl mx-auto bg-white rounded-xl shadow-md overflow-hidden xl:max-w-2xl bg-gray-100'>
 			<div className='text-center pl-2 pt-2 uppercase tracking-tight text-lg text-blue-700 font-semibold '>

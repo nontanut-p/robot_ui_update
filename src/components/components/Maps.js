@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
 import L from 'leaflet';
 import DriftMarker from 'leaflet-drift-marker';
 import Peer from '../../Peer.js';
-function Maps(map) {
+
+let map_data = []
+
+function Maps() {
+	useEffect(() => {
+		setInterval(() => {
+			map_data = Peer[3]
+			//console.log('map_data',map_data)
+		}, 500);
+	},0);
 	//  Create the Icon
 
 	const LeafIcon = L.Icon.extend({
@@ -1307,9 +1316,10 @@ function Maps(map) {
 
 
 	]
-	const dummyLL = [[10.07943709,100.6013824],[10.07945929,100.6009675]]
-	var robotPOS = (Peer[3].length > 2) ?    [Peer[3][Peer[3].length - 2], Peer[3][Peer[3].length -1]] : dummyLL
-	let robotMap = (Peer[3].length < 1)?  dummyLL :  Peer[3]
+	const dummyLL = [[14.078475654188983, 100.6021117284084],[14.079475654188983, 100.6022117284084]]
+	let robotHead = (map_data.length > 2) ?   map_data[map_data.length -1] : position
+	var robotPOS = (map_data.length > 2) ?    [map_data[map_data.length - 2], map_data[map_data.length -1]] : dummyLL
+	let robotMap = (map_data.length < 1)?  dummyLL :  map_data
 	console.log(robotPOS,'robotPOS')
 	return (
 
@@ -1335,6 +1345,11 @@ function Maps(map) {
 			{
 				
 			}
+					<Marker position={robotHead} icon={icon} >
+				<Popup >
+					I'M A R O B O T
+				</Popup>
+			</Marker>
 			<Polyline pathOptions={limeOptions} positions={robotMap} weight={5} />
 			<Polyline pathOptions={redOptions} positions={robotPOS} weight={7} />
 			<Polyline pathOptions={limeOptions} positions={polyline} weight={10} />

@@ -217,7 +217,7 @@ var robot = {
 			
 			try {
 				data = JSON.parse(data);
-				//console.log('got data : ', data);
+				console.log('got data : ', data);
 			} catch (e) {
 				console.warn('cannot parse data');
 				return;
@@ -231,18 +231,17 @@ var robot = {
 				}
 				// th.send_peer({event:'get_path_list'});
 				setInterval(() => th.send_peer({ event: 'get_pc_status' }), 5000);
-				setInterval(() => th.send_peer({ event: 'stream' }), 50);
+			    setInterval(() => th.send_peer({ event: 'stream' }), 200);
 				//setInterval(() => th.send_peer({ event: 'gnssMessage' }), 5000);
-				setInterval(() => th.send_peer({ event: 'gazebo_sim' }), 500);
+				setInterval(() => th.send_peer({ event: 'get_location' }), 500);
 			} else if (data.event == 'get_pc_status') {
 				pc.cpuUsage = data.status.cpuUsage;
 				pc.ramUsage = data.status.ramUsage;
 				pc.battery = data.status.battery;
 				pc.temp = data.status.temp;
-			} else if (data.event == 'gazebo_sim') {
-		
+			} else if (data.event == 'get_location') {
 				exportData[3] = data.data
-				//console.log('test for data ', data.data);
+				console.log('test for data ', data.data);
 			} else if (data.event == 'stream') {
 				//base64Img = data.base64Img
 
